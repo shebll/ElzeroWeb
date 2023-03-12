@@ -12,5 +12,5 @@ let counter = setInterval(() => {
   document.querySelector(".events .hour h1").innerHTML = Math.floor(hours);
   document.querySelector(".events .minute h1").innerHTML = Math.floor(mins);
   document.querySelector(".events .second h1").innerHTML = Math.floor(secs);
-  console.log(hours);
+  // console.log(hours);
 }, 1000);
