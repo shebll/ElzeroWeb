@@ -1286,15 +1286,15 @@ ul{
     top: 0;
     height: 100%;
     background-color: var(--main-color);
-    animation: grow 2s ease  forwards ;
-    -webkit-animation: grow 2s ease  infinite alternate  ;
+    /* animation: grow 2s ease  forwards ;
+    -webkit-animation: grow 2s ease  infinite alternate  ; */
 }
-@keyframes grow {
+/* @keyframes grow {
     0%{
         width: 0%;
     }
 
-}
+} */
 .skills .container .pracent .skill .prog span::after{
     position: absolute;
     content: attr(data);
