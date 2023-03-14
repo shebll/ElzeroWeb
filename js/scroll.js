@@ -21,16 +21,10 @@ window.onscroll = () => {
 btn.addEventListener("click", () => {
   document.documentElement.scrollTop = 0;
 });
-megaBtn.addEventListener("click", () => {
-  document.querySelector(".mega-btn .mega").classList.toggle("active");
+document.addEventListener("click", function (e) {
+  if (e.target.href == "http://127.0.0.1:5500/index.html#otherlinks") {
+    document.querySelector(".mega-btn .mega").classList.toggle("active");
+  } else {
+    document.querySelector(".mega-btn .mega").classList.remove("active");
+  }
 });
-// document.addEventListener("click", function (e) {
-//   if (
-//     e.target.href != "scroll.js:32 http://127.0.0.1:5500/index.html#otherlinks"
-//   ) {
-//     document.querySelector(".mega-btn .mega").classList.remove("active");
-//   }
-// });
-// megaBtn.addEventListener("mouseover", () => {
-//   document.querySelector(".mega-btn .mega").classList.add("active");
-// });
