@@ -212,9 +212,12 @@ ul{
 /* end global rules */
 /* start header */
 .header{
-    background-color: white;
-
+    background-color: rgb(173 173 173);
+    position: sticky;
+    top: 10px;
+    z-index: 100;
 }
+
 .header .container{
     display: flex;
     justify-content: space-between;
@@ -280,9 +283,11 @@ ul{
 .header .container ul.links li:last-child:hover .mega  ,
 .mega.active{
     opacity: 1;
+    display: flex;
     z-index: 100;
     top: calc(100% );
 }
+
 @media (max-width:991px)
 {
     .header .container{
@@ -302,7 +307,7 @@ ul{
     }
 }
 .mega{
-    display: flex;
+    display: none;
     gap: 20px;
     position: absolute;
     right: 0;

@@ -2,6 +2,7 @@ let par = document.querySelector(".scroll-par");
 let btn = document.querySelector(".scroll-top");
 let megaBtn = document.querySelector(".mega-btn");
 let width = document.querySelector(".scroll-par .width");
+let header = document.querySelector(".header");
 window.onscroll = () => {
   ///////////////// go to up btn feature //////////////////////////
   if (
@@ -12,6 +13,7 @@ window.onscroll = () => {
     btn.style.right = "-137px";
   }
   ///////////////// end go to up btn feature//////////////////////////
+  ////////////////////////////////////////////////////////////////////
   ///////////////// scroll bar progress feature//////////////////////////
   let scrollTop = document.documentElement.scrollTop;
   let scroll =
