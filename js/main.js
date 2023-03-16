@@ -2,7 +2,9 @@ let par = document.querySelector(".scroll-par");
 let btn = document.querySelector(".scroll-top");
 let megaBtn = document.querySelector(".mega-btn");
 let width = document.querySelector(".scroll-par .width");
-let header = document.querySelector(".header");
+let skillsSection = document.querySelector(".skills");
+let spans = document.querySelectorAll(".skills span");
+
 window.onscroll = () => {
   ///////////////// go to up btn feature //////////////////////////
   if (
@@ -13,7 +15,18 @@ window.onscroll = () => {
     btn.style.right = "-137px";
   }
   ///////////////// end go to up btn feature//////////////////////////
-  ////////////////////////////////////////////////////////////////////
+  ///////////////// start full progress bar animation//////////////////////////
+  if (window.scrollY > skillsSection.offsetTop - 300) {
+    // console.log(skillsSection.offsetTop);
+    spans.forEach((s) => {
+      s.style.width = s.dataset.width;
+    });
+  } else {
+    spans.forEach((s) => {
+      s.style.width = 0;
+    });
+  }
+  ///////////////// end full progress bar animation//////////////////////////
   ///////////////// scroll bar progress feature//////////////////////////
   let scrollTop = document.documentElement.scrollTop;
   let scroll =

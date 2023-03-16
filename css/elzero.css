@@ -1291,8 +1291,14 @@ ul{
     top: 0;
     height: 100%;
     background-color: var(--main-color);
-    /* animation: grow 2s ease  forwards ;
-    -webkit-animation: grow 2s ease  infinite alternate  ; */
+    transition: 1s ease-in-out;
+    /*animation: grow 2s ease  forwards ;
+    -webkit-animation: grow 2s ease  infinite alternate  ;
+    */-webkit-transition: 0.4s;
+    -moz-transition: 1s ease-in-out;
+    -ms-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    -webkit-transition: 1s ease-in-out;
 }
 /* @keyframes grow {
     0%{
@@ -1302,7 +1308,7 @@ ul{
 } */
 .skills .container .pracent .skill .prog span::after{
     position: absolute;
-    content: attr(data);
+    content: attr(data-width);
     padding: 3px;
     color: var(--main-color);
     font-weight: bold;
