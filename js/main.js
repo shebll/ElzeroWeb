@@ -4,7 +4,22 @@ let megaBtn = document.querySelector(".mega-btn");
 let width = document.querySelector(".scroll-par .width");
 let skillsSection = document.querySelector(".skills");
 let spans = document.querySelectorAll(".skills span");
-
+let boxes = document.querySelectorAll(".video .box");
+let images = document.querySelectorAll(".video .image img");
+boxes.forEach((box) => {
+  box.addEventListener("click", () => {
+    // console.log(box.classList[0]);
+    images.forEach((img) => {
+      img.classList.remove("active");
+    });
+    images[--box.classList[0]].classList.add("active");
+    boxes.forEach((box) => {
+      box.classList.remove("active");
+    });
+    box.classList.add("active");
+  });
+});
+console.log(boxes);
 window.onscroll = () => {
   ///////////////// go to up btn feature //////////////////////////
   if (

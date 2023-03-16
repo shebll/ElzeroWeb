@@ -1825,17 +1825,21 @@ ul{
     border: none;
     border-radius: 5px;
     padding: 20px 15px;
-    height: 20%;
+    height: 12%;
     margin-top: 20px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     background-color: #405dbd4d;
-}
-.video .container .holder .image img{ 
+}.video .container .holder .image img{
+    display: none;
     max-width: 100%;
     margin-bottom: 20px;
+}
+.video .container .holder .image img.active{ 
+    display: block;
+
 }
 .video .container .holder .menu{
     flex-basis: 30%; 
