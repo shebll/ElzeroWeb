@@ -4,12 +4,37 @@ let megaBtn = document.querySelector(".mega-btn");
 let width = document.querySelector(".scroll-par .width");
 let skillsSection = document.querySelector(".skills");
 let statsSection = document.querySelector(".stats");
+let testSection = document.querySelector(".testim");
+let stars = document.querySelectorAll(".testim .holder .card .rate i");
 let statBoxes = document.querySelectorAll(".stats .box h1");
 let spans = document.querySelectorAll(".skills span");
 let boxes = document.querySelectorAll(".video .box");
 let images = document.querySelectorAll(".video .image img");
 let flag = false;
+// console.log(stars);
 
+stars.forEach((star, i) => {
+  star.addEventListener("click", () => {
+    let num = +star.dataset.num;
+    console.log(num); //3
+    console.log(i); //13
+    if (star.classList.contains("far")) {
+      for (let index = i - num; index < i; index++) {
+        stars[index].classList.remove("far");
+        stars[index].classList.add("filled", "fas");
+      }
+      star.classList.remove("far");
+      star.classList.add("filled", "fas");
+    } else {
+      // star.classList.remove("filled", "fas");
+      // star.classList.add("far");
+      for (let index = i + 1; index < i + 5 - num; index++) {
+        stars[index].classList.remove("filled", "fas");
+        stars[index].classList.add("far");
+      }
+    }
+  });
+});
 //////////////////////////loader feature add on window load /////////////////////////////
 window.onload = function () {
   document.querySelector("#loading").classList.add("hide");
@@ -19,7 +44,6 @@ window.onload = function () {
   // clearInterval(x);
 };
 ////////////////////////// end loader feature add on window load /////////////////////////////
-
 //////////////////////////images taps in video section /////////////////////////////
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
