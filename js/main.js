@@ -5,6 +5,7 @@ let width = document.querySelector(".scroll-par .width");
 let skillsSection = document.querySelector(".skills");
 let statsSection = document.querySelector(".stats");
 let testSection = document.querySelector(".testim");
+let workSection = document.querySelector(".work");
 let stars = document.querySelectorAll(".testim .holder .card .rate i");
 let statBoxes = document.querySelectorAll(".stats .box h1");
 let spans = document.querySelectorAll(".skills span");
@@ -13,11 +14,12 @@ let images = document.querySelectorAll(".video .image img");
 let flag = false;
 // console.log(stars);
 
+//////////////////////////stars on team feature  add  /////////////////////////////
 stars.forEach((star, i) => {
   star.addEventListener("click", () => {
     let num = +star.dataset.num;
-    console.log(num); //3
-    console.log(i); //13
+    // console.log(num); //3
+    // console.log(i); //13
     if (star.classList.contains("far")) {
       for (let index = i - num; index < i; index++) {
         stars[index].classList.remove("far");
@@ -35,15 +37,29 @@ stars.forEach((star, i) => {
     }
   });
 });
-//////////////////////////loader feature add on window load /////////////////////////////
+////////////////////////// end stars on team feature  add  /////////////////////////////
+
+/////////////////loader feature add and animation on landing on window load /////////////////////////////
 window.onload = function () {
   document.querySelector("#loading").classList.add("hide");
   let x = setInterval(() => {
+    document.querySelector(".landing .container .image").style.left = "0px";
+    document.querySelector(".landing .container .text").style.transform =
+      "scale(1)";
     document.querySelector("#loading").style.display = "none";
-  }, 2700);
+  }, 1000);
+  let y = setInterval(() => {
+    document.querySelector(".landing ").style.overflow = "Initial";
+    document.querySelector(".landing .container .image").style.filter =
+      "blur(0px)";
+    document.querySelector(".landing .container .text").style.filter =
+      "blur(0px)";
+  }, 1400);
+
   // clearInterval(x);
 };
-////////////////////////// end loader feature add on window load /////////////////////////////
+/////////// end loader feature add and animation on landing on window load  /////////////////////////////
+
 //////////////////////////images taps in video section /////////////////////////////
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
@@ -90,9 +106,16 @@ window.onscroll = () => {
   }
   ///////////////// end ( stats section ) count to data set feature//////////////////////////
 
-  ///////////////// start full progress bar animation//////////////////////////
+  ///////////////// start full progress bar animation and animation on image (skills)//////////////////////////
   if (window.scrollY > skillsSection.offsetTop - 300) {
     // console.log(skillsSection.offsetTop);
+    document.querySelector(".skills .container .image").style.right = "0px";
+    document.querySelector(".skills .container .image").style.transform =
+      "scale(1)";
+    let y = setInterval(() => {
+      document.querySelector(".skills .container .image").style.filter =
+        "blur(0px)";
+    }, 600);
     spans.forEach((s) => {
       s.style.width = s.dataset.width;
     });
@@ -101,7 +124,19 @@ window.onscroll = () => {
       s.style.width = 0;
     });
   }
-  ///////////////// end full progress bar animation//////////////////////////
+  ///////////////// end full progress bar animation and animation on image (skills)//////////////////////////
+
+  ///////////////// animation on image (work section) //////////////////////////
+  if (window.scrollY > workSection.offsetTop - 300) {
+    let y = setInterval(() => {
+      document.querySelector(
+        ".work .container .holder > .image"
+      ).style.transform = "scale(1)";
+      document.querySelector(".work .container .holder > .image").style.filter =
+        "blur(0px)";
+    }, 600);
+  }
+  ///////////////// end animation on image (work section) //////////////////////////
 
   ///////////////// scroll bar progress feature//////////////////////////
   let scrollTop = document.documentElement.scrollTop;
