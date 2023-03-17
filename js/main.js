@@ -11,8 +11,24 @@ let statBoxes = document.querySelectorAll(".stats .box h1");
 let spans = document.querySelectorAll(".skills span");
 let boxes = document.querySelectorAll(".video .box");
 let images = document.querySelectorAll(".video .image img");
+let labels = document.querySelectorAll(".video  .image label");
+let shuffleBtn = document.querySelector(".video .container .holder .menu > i ");
+
 let flag = false;
-// console.log(stars);
+// console.log(labels);
+
+shuffleBtn.onclick = () => {
+  let random = Math.floor(Math.random() * boxes.length);
+
+  for (let index = 0; index < boxes.length; index++) {
+    images[index].classList.remove("active");
+    boxes[index].classList.remove("active");
+    labels[index].classList.remove("active");
+  }
+  images[random].classList.add("active");
+  boxes[random].classList.add("active");
+  labels[random].classList.add("active");
+};
 
 //////////////////////////stars on team feature  add  /////////////////////////////
 stars.forEach((star, i) => {
@@ -41,6 +57,7 @@ stars.forEach((star, i) => {
 
 /////////////////loader feature add and animation on landing on window load /////////////////////////////
 window.onload = function () {
+  shuffleBtn.click();
   document.querySelector("#loading").classList.add("hide");
   let x = setInterval(() => {
     document.querySelector(".landing .container .image").style.left = "0px";
@@ -67,7 +84,11 @@ boxes.forEach((box) => {
     images.forEach((img) => {
       img.classList.remove("active");
     });
+    labels.forEach((l) => {
+      l.classList.remove("active");
+    });
     images[--box.classList[0]].classList.add("active");
+    labels[--box.classList[0]].classList.add("active");
     boxes.forEach((box) => {
       box.classList.remove("active");
     });
@@ -118,10 +139,6 @@ window.onscroll = () => {
     }, 600);
     spans.forEach((s) => {
       s.style.width = s.dataset.width;
-    });
-  } else {
-    spans.forEach((s) => {
-      s.style.width = 0;
     });
   }
   ///////////////// end full progress bar animation and animation on image (skills)//////////////////////////
