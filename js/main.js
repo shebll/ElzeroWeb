@@ -10,6 +10,16 @@ let boxes = document.querySelectorAll(".video .box");
 let images = document.querySelectorAll(".video .image img");
 let flag = false;
 
+//////////////////////////loader feature add on window load /////////////////////////////
+window.onload = function () {
+  document.querySelector("#loading").classList.add("hide");
+  let x = setInterval(() => {
+    document.querySelector("#loading").style.display = "none";
+  }, 2700);
+  // clearInterval(x);
+};
+////////////////////////// end loader feature add on window load /////////////////////////////
+
 //////////////////////////images taps in video section /////////////////////////////
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
