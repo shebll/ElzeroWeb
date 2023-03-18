@@ -1485,6 +1485,7 @@ ul{
 }
 .work .container .holder .right{
     max-width: 100%;
+    flex: 1;
 }
 .work .container .holder .right .card{
     padding: 25px;
@@ -1494,7 +1495,6 @@ ul{
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     border-radius: 7px;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
@@ -1503,6 +1503,12 @@ ul{
     margin-bottom: 20px;
     overflow: hidden;
     
+}
+.work .container .holder .right .card.active .text p{
+    display: block;
+}
+.work .container .holder .right .card.active .image{
+    display: block;
 }
 .work .container .holder .right .card::after{
     position: absolute;
@@ -1524,6 +1530,7 @@ ul{
 
 }
 .work .container .holder .right .card .image{ 
+    display: none;
     width:150px;
     margin-right: 25px;
     z-index: 2;
@@ -1540,6 +1547,7 @@ ul{
 }
 .work .container .holder .right .card .text p{ 
     line-height: 1.8;
+    display: none;
     margin: 5px 0;
     color: #777;
 }

@@ -13,10 +13,22 @@ let boxes = document.querySelectorAll(".video .box");
 let images = document.querySelectorAll(".video .image img");
 let labels = document.querySelectorAll(".video  .image label");
 let shuffleBtn = document.querySelector(".video .container .holder .menu > i ");
+let cards = document.querySelectorAll(".work .container .holder .right .card");
 
 let flag = false;
-// console.log(labels);
+console.log(cards);
+/////////////////// work section add taps feature ///////////////////////////
+cards.forEach((card) => {
+  card.addEventListener("click", () => {
+    cards.forEach((card) => {
+      card.classList.remove("active");
+    });
+    card.classList.add("active");
+  });
+});
+/////////////////// end  work section add taps feature ///////////////////////////
 
+/////////////////// video section shuffle btn feature ///////////////////////////
 shuffleBtn.onclick = () => {
   let random = Math.floor(Math.random() * boxes.length);
 
@@ -29,6 +41,7 @@ shuffleBtn.onclick = () => {
   boxes[random].classList.add("active");
   labels[random].classList.add("active");
 };
+///////////////////end video section shuffle btn feature ///////////////////////////
 
 //////////////////////////stars on team feature  add  /////////////////////////////
 stars.forEach((star, i) => {
@@ -57,6 +70,7 @@ stars.forEach((star, i) => {
 
 /////////////////loader feature add and animation on landing on window load /////////////////////////////
 window.onload = function () {
+  window.alert("this is a dummy data");
   shuffleBtn.click();
   document.querySelector("#loading").classList.add("hide");
   let x = setInterval(() => {
