@@ -1085,15 +1085,24 @@ ul{
 }
 
 .team .container .holder{
-    display: grid;
+    position: relative;
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden;
+    /* padding: 20px; */
+    /* display: grid;
     grid-template-columns: repeat(auto-fill ,minmax(250px , 1fr));
-    gap: 50px 100px;
+    gap: 50px 100px; */
 }
+
 .team .container .holder .card{
     background-color: var(--section-background);
+    display: inline-block;
     position: relative;
     padding: 20px;
     border-radius: 10px;
+    margin-left: 20px;
+    width: calc(100% / 3 - 24px);
     height: 450px;
     z-index: 1;
     -webkit-border-radius: 10px;
@@ -1107,6 +1116,16 @@ ul{
     -moz-transition: var(--main-transition);
     -ms-transition: var(--main-transition);
     -o-transition: var(--main-transition);
+}
+@media (max-width: 900px) {
+    .team .container .holder .card{
+        width: calc(100% / 2 - 24px);
+    }
+}
+@media (max-width: 550px) {
+    .team .container .holder .card{
+        width: calc(100% / 1 - 28px);
+    }
 }
 .team .container .holder .card::before{
     position: absolute;
@@ -1135,11 +1154,10 @@ ul{
  .team .container .holder .card.card:hover::before{    
     width: 100% ;
 }
-       
 .team .container .holder .card .image{
     position: absolute;
     top: 40px;
-    left: -20%;
+    left: -5%;
     border-radius: 9px;
     overflow: hidden;
     width: 320px;

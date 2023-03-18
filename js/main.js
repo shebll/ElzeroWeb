@@ -16,7 +16,7 @@ let shuffleBtn = document.querySelector(".video .container .holder .menu > i ");
 let cards = document.querySelectorAll(".work .container .holder .right .card");
 
 let flag = false;
-console.log(cards);
+// console.log(cards);
 /////////////////// work section add taps feature ///////////////////////////
 cards.forEach((card) => {
   card.addEventListener("click", () => {
@@ -44,11 +44,20 @@ shuffleBtn.onclick = () => {
 ///////////////////end video section shuffle btn feature ///////////////////////////
 
 //////////////////////////stars on team feature  add  /////////////////////////////
+// let teamObj = {
+//   index: 0,
+//   starCount: 0,
+// };
+
+// let arrayOfObject = [];
+// teamObj.index = 1;
+// arrayOfObject.push(teamObj);
+// teamObj.index = 1;
+// arrayOfObject.push(teamObj);
+// console.log(arrayOfObject);
 stars.forEach((star, i) => {
   star.addEventListener("click", () => {
     let num = +star.dataset.num;
-    // console.log(num); //3
-    // console.log(i); //13
     if (star.classList.contains("far")) {
       for (let index = i - num; index < i; index++) {
         stars[index].classList.remove("far");
@@ -66,6 +75,7 @@ stars.forEach((star, i) => {
     }
   });
 });
+
 ////////////////////////// end stars on team feature  add  /////////////////////////////
 
 /////////////////loader feature add and animation on landing on window load /////////////////////////////
@@ -180,8 +190,11 @@ window.onscroll = () => {
 
 ///////////////////////////////  mega btn function click feature /////////////////////////////////
 document.addEventListener("click", function (e) {
-  if (e.target.href == "http://127.0.0.1:5500/index.html#otherlinks") {
+  console.log(e.target.href);
+
+  if (e.target.href == "http://127.0.0.1:5500/#otherlinks") {
     document.querySelector(".mega-btn .mega").classList.toggle("active");
+    // console.log("s");
   } else {
     document.querySelector(".mega-btn .mega").classList.remove("active");
   }
@@ -212,3 +225,28 @@ let counter = setInterval(() => {
   // console.log(hours);
 }, 1000);
 /////////////////////////////// end Event feature ( count down timer  )///////////////////////////////////////////
+/////////////////////////////// image scroll dragging feature ( team section)///////////////////////////////////////////
+
+let holderTeam = document.querySelector(".team .holder");
+console.log(holderTeam);
+let isDargStart = false,
+  prevPageX,
+  prevScrollLeft;
+let dargStart = (e) => {
+  isDargStart = true;
+  prevPageX = e.pageX;
+  prevScrollLeft = holderTeam.scrollLeft;
+};
+let dragging = (e) => {
+  if (!isDargStart) return;
+  e.preventDefault();
+  let diff = e.pageX - prevPageX;
+  holderTeam.scrollLeft = prevScrollLeft - diff;
+};
+let dargEnd = () => {
+  isDargStart = false;
+};
+holderTeam.addEventListener("mousedown", dargStart);
+holderTeam.addEventListener("mousemove", dragging);
+holderTeam.addEventListener("mouseup", dargEnd);
+/////////////////////////////// image scroll dragging feature ( team section)///////////////////////////////////////////
