@@ -192,7 +192,10 @@ window.onscroll = () => {
 document.addEventListener("click", function (e) {
   console.log(e.target.href);
 
-  if (e.target.href == "http://127.0.0.1:5500/#otherlinks") {
+  if (
+    e.target.href == "http://127.0.0.1:5500/#otherlinks" ||
+    e.target.href == "https://shebll.github.io/Template_Three/#otherlinks"
+  ) {
     document.querySelector(".mega-btn .mega").classList.toggle("active");
     // console.log("s");
   } else {
