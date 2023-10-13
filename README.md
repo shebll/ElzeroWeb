@@ -1,5 +1,5 @@
 #ElzeroWeb 
-dimo -> https://shebll.github.io/ElzeroWeb/
+dimo -> https://elzero-web.vercel.app/
 
 ## screenshot 
 
